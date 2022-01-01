@@ -1,0 +1,18 @@
+body {
+  background: rgb(140, 40, 90);
+  background: radial-gradient(
+    circle,
+    rgba(140, 40, 90, 1) 0%,
+    rgba(108, 51, 84, 1) 0%,
+    rgba(14, 50, 68, 1) 0%,
+    rgba(56, 69, 75, 1) 100%
+  );
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
