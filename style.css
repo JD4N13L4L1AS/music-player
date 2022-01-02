@@ -1,18 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background: rgb(140, 40, 90);
-  background: radial-gradient(
-    circle,
-    rgba(140, 40, 90, 1) 0%,
-    rgba(108, 51, 84, 1) 0%,
-    rgba(14, 50, 68, 1) 0%,
-    rgba(56, 69, 75, 1) 100%
+  font-family: "Inter", sans-serif;
+  background: rgb(58, 5, 28);
+  background: linear-gradient(
+    0deg,
+    rgba(58, 5, 28, 1) 11%,
+    rgba(52, 1, 26, 1) 38%,
+    rgba(114, 49, 49, 1) 100%,
+    rgba(56, 69, 75, 1) 100%,
+    rgba(114, 69, 69, 0) 100%,
+    rgba(74, 0, 42, 1) 100%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(80, 0, 47, 1) 100%,
+    rgba(40, 62, 72, 1) 100%,
+    rgba(14, 50, 68, 1) 100%
   );
 }
 
-.container {
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  justify-content: center;
+  align-items: flex-end;
+  margin: 60px 0px;
+}
+
+.playlistImg {
+  margin-left: 33px;
+}
+
+.album-img {
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+}
+
+.albumInfo {
+  margin-left: 25px;
+  color: #fff;
+}
+
+.albumInfo h6 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: -20px;
+}
+
+.albumName {
+  font-size: 80px;
+  font-weight: 900;
+}
+
+.artistImg {
+  border-radius: 50%;
+  width: 7%;
+  cursor: pointer;
+}
+
+.artistName {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 16px;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.artistName:hover {
+  color: rgb(139, 139, 139);
+  text-decoration: underline;
+}
+
+.songsInfo {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+}
+
+.playlistContainer {
+  padding: 0 32px;
+  border-radius: 4px;
+  outline: 0;
+  background: rgb(105, 42, 45);
+  background: linear-gradient(
+    180deg,
+    rgba(105, 42, 45, 1) 0%,
+    rgba(2, 0, 1, 1) 60%,
+    rgba(2, 0, 1, 1) 87%,
+    rgba(2, 0, 1, 1) 98%,
+    rgba(2, 0, 1, 1) 100%,
+    rgba(51, 2, 31, 1) 100%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(0, 0, 0, 1) 100%,
+    rgba(56, 56, 56, 1) 100%,
+    rgba(40, 62, 72, 1) 100%,
+    rgba(35, 21, 21, 1) 100%,
+    rgba(74, 40, 40, 1) 100%,
+    rgba(74, 40, 40, 1) 100%,
+    rgba(74, 40, 40, 1) 100%,
+    rgba(14, 50, 68, 1) 100%,
+    rgba(114, 49, 49, 1) 100%,
+    rgba(56, 69, 75, 1) 100%,
+    rgba(114, 69, 69, 0) 100%,
+    rgba(74, 0, 42, 1) 100%
+  );
+}
+
+.block {
+  height: 105px;
+}
+
+.playlistHeader {
+  color: #b3b3b3;
+  display: flex;
+  text-transform: uppercase;
+  justify-content: space-between;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.trackNo {
+  margin-right: 30px;
+  margin-left: 10px;
+}
+
+.divider {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 15px 0;
+}
+
+.musicContainer {
+  padding: 0 32px;
+}
+
+.songImg {
+  width: 50px;
+  height: 50px;
+  margin: 5px 15px;
+}
+
+.trackContainer {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  height: 56px;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 15px;
+}
+
+.trackContainer > div > span {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+
+.trackContainer:focus-within,
+.trackContainer:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }

@@ -10,18 +10,85 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+
     <script
       src="https://kit.fontawesome.com/520bc1447c.js"
       crossorigin="anonymous"
     ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>Epsiode-68 | Music Player</title>
+
+    <link
+      rel="icon"
+      sizes="16x16"
+      type="image/png"
+      href="https://open.scdn.co/cdn/images/favicon16.c498a969.png"
+    />
+    <title>Lany - mama's boy</title>
   </head>
   <body>
-    <div class="container">
-      <audio src="./assets/music/LANY - you!.mp3" controls>
-        Your browser does not support the audio element.
-      </audio>
+    <div id="main">
+      <div class="header">
+        <div class="playlistImg">
+          <img
+            class="album-img"
+            src="./assets/image/lany_mama_boy.jpg"
+            alt="mama's boy"
+            width="215"
+            height="215"
+          />
+        </div>
+        <div class="albumInfo">
+          <h6>Album</h6>
+          <span class="albumName">mama's boy</span>
+          <div class="artist">
+            <div class="artistInfo">
+              <img
+                class="artistImg"
+                src="./assets/image/lany.jpg"
+                alt="artist.jpg"
+              />
+              <a
+                href="https://github.com/matthew-clay"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="artistName"
+                >LANY</a
+              >
+              <span class="songsInfo">| 2020 | 14 songs, 50 min 55 sec</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="playlistContainer">
+        <div class="block"></div>
+        <div class="playlistHeader">
+          <div class="idAndTitle">
+            <span class="trackNo">#</span>
+            <span>Title</span>
+          </div>
+
+          <div>
+            <i class="far fa-clock"></i>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="musicContainer"></div>
+        <audio src="" class="music">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div class="playerControlsContainer"></div>
     </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
