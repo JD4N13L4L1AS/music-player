@@ -290,8 +290,6 @@ body {
   border-radius: 4px;
   padding: 16px;
   margin: 0px 18px;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .card-box {
@@ -311,7 +309,7 @@ body {
 }
 
 .moreAlbumImg {
-  width: 160px;
+  width: 90%;
 }
 
 .releaseYear {
