@@ -76,7 +76,7 @@ const tracks = [
     albumImg: "./assets/image/lany_mama_boy.jpg",
     trackId:
       "./assets/music/LANY - what i wish just one person would say to me.mp3",
-    title: "what i wish just one person would say to me",
+    title: "(what i wish just one person would say to me)",
   },
   {
     trackNo: 14,
