@@ -30,7 +30,7 @@
       type="image/png"
       href="https://open.scdn.co/cdn/images/favicon16.c498a969.png"
     />
-    <title>Lany - mama's boy</title>
+    <title>LANY - mama's boy</title>
   </head>
   <body>
     <div id="main">
@@ -84,9 +84,33 @@
         <audio src="" class="music">
           Your browser does not support the audio element.
         </audio>
+        <div class="license">
+          <p>© 2020 Universal Music Operations Limited</p>
+          <p>
+            ℗ A Polydor Records Release; ℗ 2020 Side Street Entertainment LLC,
+            under exclusive licence to Universal Music Operations Limited
+          </p>
+        </div>
+
+        <div class="moreAlbumContainer"></div>
       </div>
 
-      <div class="playerControlsContainer"></div>
+      <div class="playerControlsContainer">
+        <div class="buttonContainer">
+          <i class="fas fa-caret-left controls previousButton"></i>
+          <i class="fas fa-play-circle controls playButton"></i>
+          <i class="fas fa-pause-circle controls pauseButton"></i>
+          <i class="fas fa-caret-right controls nextButton"></i>
+        </div>
+
+        <div class="playbackAndProgressBar">
+          <div class="playedTime">00:00</div>
+          <div class="progressBarContainer">
+            <div class="currentProgress"></div>
+          </div>
+          <div class="totalTime">00:00</div>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>

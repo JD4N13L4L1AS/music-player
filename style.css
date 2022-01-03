@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Inter", sans-serif;
   background: rgb(58, 5, 28);
@@ -80,8 +84,6 @@ body {
 
 .playlistContainer {
   padding: 0 32px;
-  border-radius: 4px;
-  outline: 0;
   background: rgb(105, 42, 45);
   background: linear-gradient(
     180deg,
@@ -138,7 +140,7 @@ body {
 .songImg {
   width: 50px;
   height: 50px;
-  margin: 5px 15px;
+  margin: 3px 15px;
 }
 
 .trackContainer {
@@ -148,7 +150,9 @@ body {
   height: 56px;
   cursor: pointer;
   user-select: none;
-  margin-bottom: 15px;
+  margin-top: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
 .trackContainer > div > span {
@@ -160,4 +164,88 @@ body {
 .trackContainer:focus-within,
 .trackContainer:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.playerControlsContainer {
+  background-color: #181818;
+  border-top: 1px solid #282828;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  height: 30px;
+}
+
+.controls {
+  color: #fff;
+  margin: 20px 10px;
+  cursor: pointer;
+}
+
+.fa-caret-left,
+.fa-caret-right {
+  font-size: 25px;
+}
+
+.fa-play-circle,
+.fa-pause-circle {
+  font-size: 35px;
+}
+
+.pauseButton {
+  display: none;
+}
+
+.playButton:focus,
+.playButton:hover,
+.pauseButton:focus,
+.pauseButton:hover {
+  transform: scale(1.06);
+  transition-property: none;
+  transition-property: all;
+}
+.playButton :focus,
+.pauseButton :focus {
+  outline: none;
+}
+
+.playbackAndProgressBar {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressBarContainer {
+  width: 500px;
+  height: 5px;
+  background-color: #6c757d;
+  margin: 0px 10px;
+}
+
+.currentProgress {
+  width: 10%;
+  height: 100%;
+  background-color: #dc3545;
+}
+
+.license {
+  padding: 30px 0px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 16px;
+  text-transform: none;
+  color: #b3b3b3;
+}
+
+.moreAlbumContainer {
+  height: 400px;
 }

@@ -87,15 +87,14 @@ const tracks = [
 ];
 
 const musicContainerTag = document.getElementsByClassName("musicContainer")[0];
-
 const audioTag = document.getElementsByClassName("music")[0];
 
 for (let i = 0; i < tracks.length; i++) {
   const trackContainerTag = document.createElement("div");
-
+  const trackTag = document.createElement("div");
   const trackNoTag = document.createElement("span");
   const trackAlbumImgTag = document.createElement("img");
-  const trackTag = document.createElement("div");
+  const trackNameTag = document.createElement("div");
 
   trackContainerTag.addEventListener("click", () => {
     const currentTrackId = tracks[i].trackId;
@@ -108,12 +107,13 @@ for (let i = 0; i < tracks.length; i++) {
   const titleImg = tracks[i].albumImg;
   const titleName = tracks[i].title;
 
+  trackNameTag.style.display = "inline";
+
   trackNoTag.append(titleId);
   trackAlbumImgTag.src = titleImg;
   trackAlbumImgTag.classList.add("songImg");
-  trackTag.append(trackNoTag, trackAlbumImgTag, titleName);
-
+  trackNameTag.append(titleName);
+  trackTag.append(trackNoTag, trackAlbumImgTag, trackNameTag);
   trackContainerTag.append(trackTag);
-
   musicContainerTag.append(trackContainerTag);
 }
