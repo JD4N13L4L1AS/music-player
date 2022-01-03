@@ -89,8 +89,14 @@ const tracks = [
 const musicContainerTag = document.getElementsByClassName("musicContainer")[0];
 const audioTag = document.getElementsByClassName("music")[0];
 
+const currentProgressTag = document.getElementById("currentProgress");
+
 const playedTimeTag = document.getElementsByClassName("playedTime")[0];
 const totalTimeTag = document.getElementsByClassName("totalTime")[0];
+const playButtonTag = document.getElementsByClassName("playButton")[0];
+const pauseButtonTag = document.getElementsByClassName("pauseButton")[0];
+const previousButtonTag = document.getElementsByClassName("previousButton")[0];
+const nextButtonTag = document.getElementsByClassName("nextButton")[0];
 
 for (let i = 0; i < tracks.length; i++) {
   const trackContainerTag = document.createElement("div");
@@ -100,9 +106,8 @@ for (let i = 0; i < tracks.length; i++) {
   const trackNameTag = document.createElement("div");
 
   trackContainerTag.addEventListener("click", () => {
-    const currentTrackId = tracks[i].trackId;
-    audioTag.src = currentTrackId;
-    audioTag.play();
+    currentPlayingIndex = i;
+    playSong();
   });
   trackContainerTag.classList.add("trackContainer");
 
@@ -121,9 +126,10 @@ for (let i = 0; i < tracks.length; i++) {
   musicContainerTag.append(trackContainerTag);
 }
 
+let duration = 0;
 let durationText = "00:00";
 audioTag.addEventListener("loadeddata", () => {
-  const duration = Math.floor(audioTag.duration);
+  duration = Math.floor(audioTag.duration);
   durationText = createMinuteAndSecondText(duration);
 });
 
@@ -132,7 +138,13 @@ audioTag.addEventListener("timeupdate", () => {
   const currentTimeText = createMinuteAndSecondText(currentTime);
   playedTimeTag.textContent = currentTimeText;
   totalTimeTag.textContent = durationText;
+  updateCurrentProgress(currentTime);
 });
+
+const updateCurrentProgress = (currentTime) => {
+  const currentProgressWidth = (500 / duration) * currentTime;
+  currentProgressTag.style.width = currentProgressWidth.toString() + "px";
+};
 
 const createMinuteAndSecondText = (totalSecond) => {
   const minutes = Math.floor(totalSecond / 60);
@@ -142,4 +154,57 @@ const createMinuteAndSecondText = (totalSecond) => {
   const secondText = seconds < 10 ? "0" + seconds.toString() : seconds;
 
   return minuteText + ":" + secondText;
+};
+
+let currentPlayingIndex = 0;
+let isPlaying = false;
+playButtonTag.addEventListener("click", () => {
+  const currentTime = Math.floor(audioTag.currentTime);
+  isPlaying = true;
+  if (currentTime === 0) {
+    playSong();
+  } else {
+    audioTag.play();
+    updatePlayAndPauseButton();
+  }
+});
+
+pauseButtonTag.addEventListener("click", () => {
+  isPlaying = false;
+  audioTag.pause();
+  updatePlayAndPauseButton();
+});
+
+previousButtonTag.addEventListener("click", () => {
+  if (currentPlayingIndex === 0) {
+    return;
+  }
+  currentPlayingIndex -= 1;
+  playSong();
+});
+
+nextButtonTag.addEventListener("click", () => {
+  if (currentPlayingIndex === tracks.length - 1) {
+    return;
+  }
+  currentPlayingIndex += 1;
+  playSong();
+});
+
+const playSong = () => {
+  const songIdToPlay = tracks[currentPlayingIndex].trackId;
+  audioTag.src = songIdToPlay;
+  audioTag.play();
+  isPlaying = true;
+  updatePlayAndPauseButton();
+};
+
+const updatePlayAndPauseButton = () => {
+  if (isPlaying) {
+    playButtonTag.style.display = "none";
+    pauseButtonTag.style.display = "inline";
+  } else {
+    playButtonTag.style.display = "inline";
+    pauseButtonTag.style.display = "none";
+  }
 };

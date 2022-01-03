@@ -224,7 +224,6 @@ body {
 }
 
 .playbackAndProgressBar {
-  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -233,16 +232,16 @@ body {
 .progressBarContainer {
   width: 500px;
   height: 5px;
-  background-color: #6c757d;
   margin: 0px 10px;
   border-radius: 5px;
+  background-color: #6c757d;
 }
 
-.currentProgress {
-  background-color: #535353;
-  color: #535353;
-  width: 0;
+#currentProgress {
+  width: 0px;
   height: 100%;
+  background-color: #b3b3b3;
+  border-radius: 5px;
 }
 
 .license {
