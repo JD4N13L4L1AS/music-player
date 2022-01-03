@@ -89,6 +89,9 @@ const tracks = [
 const musicContainerTag = document.getElementsByClassName("musicContainer")[0];
 const audioTag = document.getElementsByClassName("music")[0];
 
+const playedTimeTag = document.getElementsByClassName("playedTime")[0];
+const totalTimeTag = document.getElementsByClassName("totalTime")[0];
+
 for (let i = 0; i < tracks.length; i++) {
   const trackContainerTag = document.createElement("div");
   const trackTag = document.createElement("div");
@@ -107,7 +110,7 @@ for (let i = 0; i < tracks.length; i++) {
   const titleImg = tracks[i].albumImg;
   const titleName = tracks[i].title;
 
-  trackNameTag.style.display = "inline";
+  trackNameTag.classList.add("trackName");
 
   trackNoTag.append(titleId);
   trackAlbumImgTag.src = titleImg;
@@ -117,3 +120,26 @@ for (let i = 0; i < tracks.length; i++) {
   trackContainerTag.append(trackTag);
   musicContainerTag.append(trackContainerTag);
 }
+
+let durationText = "00:00";
+audioTag.addEventListener("loadeddata", () => {
+  const duration = Math.floor(audioTag.duration);
+  durationText = createMinuteAndSecondText(duration);
+});
+
+audioTag.addEventListener("timeupdate", () => {
+  const currentTime = Math.floor(audioTag.currentTime);
+  const currentTimeText = createMinuteAndSecondText(currentTime);
+  playedTimeTag.textContent = currentTimeText;
+  totalTimeTag.textContent = durationText;
+});
+
+const createMinuteAndSecondText = (totalSecond) => {
+  const minutes = Math.floor(totalSecond / 60);
+  const seconds = totalSecond % 60;
+
+  const minuteText = minutes < 10 ? "0" + minutes.toString() : minutes;
+  const secondText = seconds < 10 ? "0" + seconds.toString() : seconds;
+
+  return minuteText + ":" + secondText;
+};
