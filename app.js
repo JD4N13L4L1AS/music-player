@@ -177,18 +177,22 @@ pauseButtonTag.addEventListener("click", () => {
 
 previousButtonTag.addEventListener("click", () => {
   if (currentPlayingIndex === 0) {
-    return;
+    currentPlayingIndex = tracks.length - 1;
+    playSong();
+  } else {
+    currentPlayingIndex -= 1;
+    playSong();
   }
-  currentPlayingIndex -= 1;
-  playSong();
 });
 
 nextButtonTag.addEventListener("click", () => {
   if (currentPlayingIndex === tracks.length - 1) {
-    return;
+    currentPlayingIndex = 0;
+    playSong();
+  } else {
+    currentPlayingIndex += 1;
+    playSong();
   }
-  currentPlayingIndex += 1;
-  playSong();
 });
 
 const playSong = () => {
