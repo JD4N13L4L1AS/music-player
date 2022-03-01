@@ -1,5 +1,5 @@
 # web-MusicPlayer
-This is what I make after watching some episodes of JavaScript Videos from Msquare-programming. Now, I know codes are messy and will maintain this code steps by step. I'll fix asap.
+This is what I make after watching some episodes of JavaScript Videos from Msquare-programming.
 
 ###### Still need to develope in mobile layout
 
